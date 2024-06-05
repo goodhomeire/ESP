@@ -1,0 +1,17 @@
+[0/1] Re-running CMake...
+-- Building ESP-IDF components for target esp32c3
+-- Project sdkconfig file /root/esp_project/hello_world/sdkconfig
+-- App "hello_world" version: ece6dfd-dirty
+-- Adding linker script /root/esp_project/hello_world/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_system/ld/esp32c3/sections.ld.in
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.api.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.libgcc.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.newlib.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.version.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.eco3.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/soc/esp32c3/ld/esp32c3.peripherals.ld
+-- Configuring incomplete, errors occurred!
+See also "/root/esp_project/hello_world/build/CMakeFiles/CMakeOutput.log".
+FAILED: build.ninja 
+/usr/bin/cmake --regenerate-during-build -S/root/esp_project/hello_world -B/root/esp_project/hello_world/build

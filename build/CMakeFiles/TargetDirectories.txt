@@ -628,3 +628,17 @@
 /root/esp_project/hello_world/build/esp-idf/main/CMakeFiles/install.dir
 /root/esp_project/hello_world/build/esp-idf/main/CMakeFiles/install/local.dir
 /root/esp_project/hello_world/build/esp-idf/main/CMakeFiles/install/strip.dir
+/root/esp_project/hello_world/build/esp-idf/EC11/CMakeFiles/__idf_EC11.dir
+/root/esp_project/hello_world/build/esp-idf/EC11/CMakeFiles/edit_cache.dir
+/root/esp_project/hello_world/build/esp-idf/EC11/CMakeFiles/rebuild_cache.dir
+/root/esp_project/hello_world/build/esp-idf/EC11/CMakeFiles/list_install_components.dir
+/root/esp_project/hello_world/build/esp-idf/EC11/CMakeFiles/install.dir
+/root/esp_project/hello_world/build/esp-idf/EC11/CMakeFiles/install/local.dir
+/root/esp_project/hello_world/build/esp-idf/EC11/CMakeFiles/install/strip.dir
+/root/esp_project/hello_world/build/esp-idf/oled/CMakeFiles/__idf_oled.dir
+/root/esp_project/hello_world/build/esp-idf/oled/CMakeFiles/edit_cache.dir
+/root/esp_project/hello_world/build/esp-idf/oled/CMakeFiles/rebuild_cache.dir
+/root/esp_project/hello_world/build/esp-idf/oled/CMakeFiles/list_install_components.dir
+/root/esp_project/hello_world/build/esp-idf/oled/CMakeFiles/install.dir
+/root/esp_project/hello_world/build/esp-idf/oled/CMakeFiles/install/local.dir
+/root/esp_project/hello_world/build/esp-idf/oled/CMakeFiles/install/strip.dir

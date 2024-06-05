@@ -1,0 +1,33 @@
+[0/1] Re-running CMake...
+-- Building ESP-IDF components for target esp32c3
+-- Project sdkconfig file /root/esp_project/hello_world/sdkconfig
+-- App "hello_world" version: ece6dfd-dirty
+-- Adding linker script /root/esp_project/hello_world/build/esp-idf/esp_system/ld/memory.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_system/ld/esp32c3/sections.ld.in
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.api.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.libgcc.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.newlib.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.version.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/esp_rom/esp32c3/ld/esp32c3.rom.eco3.ld
+-- Adding linker script /root/esp/v5.2/esp-idf/components/soc/esp32c3/ld/esp32c3.peripherals.ld
+-- Components: app_trace app_update bootloader bootloader_support bt cmock console cxx driver efuse esp-tls esp_adc esp_app_format esp_bootloader_format esp_coex esp_common esp_eth esp_event esp_gdbstub esp_hid esp_http_client esp_http_server esp_https_ota esp_https_server esp_hw_support esp_lcd esp_local_ctrl esp_mm esp_netif esp_netif_stack esp_partition esp_phy esp_pm esp_psram esp_ringbuf esp_rom esp_system esp_timer esp_wifi espcoredump esptool_py fatfs freertos hal heap http_parser idf_test ieee802154 json log lwip main mbedtls mqtt newlib nvs_flash nvs_sec_provider oled openthread partition_table protobuf-c protocomm pthread riscv sdmmc soc spi_flash spiffs tcp_transport ulp unity usb vfs wear_levelling wifi_provisioning wpa_supplicant
+-- Component paths: /root/esp/v5.2/esp-idf/components/app_trace /root/esp/v5.2/esp-idf/components/app_update /root/esp/v5.2/esp-idf/components/bootloader /root/esp/v5.2/esp-idf/components/bootloader_support /root/esp/v5.2/esp-idf/components/bt /root/esp/v5.2/esp-idf/components/cmock /root/esp/v5.2/esp-idf/components/console /root/esp/v5.2/esp-idf/components/cxx /root/esp/v5.2/esp-idf/components/driver /root/esp/v5.2/esp-idf/components/efuse /root/esp/v5.2/esp-idf/components/esp-tls /root/esp/v5.2/esp-idf/components/esp_adc /root/esp/v5.2/esp-idf/components/esp_app_format /root/esp/v5.2/esp-idf/components/esp_bootloader_format /root/esp/v5.2/esp-idf/components/esp_coex /root/esp/v5.2/esp-idf/components/esp_common /root/esp/v5.2/esp-idf/components/esp_eth /root/esp/v5.2/esp-idf/components/esp_event /root/esp/v5.2/esp-idf/components/esp_gdbstub /root/esp/v5.2/esp-idf/components/esp_hid /root/esp/v5.2/esp-idf/components/esp_http_client /root/esp/v5.2/esp-idf/components/esp_http_server /root/esp/v5.2/esp-idf/components/esp_https_ota /root/esp/v5.2/esp-idf/components/esp_https_server /root/esp/v5.2/esp-idf/components/esp_hw_support /root/esp/v5.2/esp-idf/components/esp_lcd /root/esp/v5.2/esp-idf/components/esp_local_ctrl /root/esp/v5.2/esp-idf/components/esp_mm /root/esp/v5.2/esp-idf/components/esp_netif /root/esp/v5.2/esp-idf/components/esp_netif_stack /root/esp/v5.2/esp-idf/components/esp_partition /root/esp/v5.2/esp-idf/components/esp_phy /root/esp/v5.2/esp-idf/components/esp_pm /root/esp/v5.2/esp-idf/components/esp_psram /root/esp/v5.2/esp-idf/components/esp_ringbuf /root/esp/v5.2/esp-idf/components/esp_rom /root/esp/v5.2/esp-idf/components/esp_system /root/esp/v5.2/esp-idf/components/esp_timer /root/esp/v5.2/esp-idf/components/esp_wifi /root/esp/v5.2/esp-idf/components/espcoredump /root/esp/v5.2/esp-idf/components/esptool_py /root/esp/v5.2/esp-idf/components/fatfs /root/esp/v5.2/esp-idf/components/freertos /root/esp/v5.2/esp-idf/components/hal /root/esp/v5.2/esp-idf/components/heap /root/esp/v5.2/esp-idf/components/http_parser /root/esp/v5.2/esp-idf/components/idf_test /root/esp/v5.2/esp-idf/components/ieee802154 /root/esp/v5.2/esp-idf/components/json /root/esp/v5.2/esp-idf/components/log /root/esp/v5.2/esp-idf/components/lwip /root/esp_project/hello_world/main /root/esp/v5.2/esp-idf/components/mbedtls /root/esp/v5.2/esp-idf/components/mqtt /root/esp/v5.2/esp-idf/components/newlib /root/esp/v5.2/esp-idf/components/nvs_flash /root/esp/v5.2/esp-idf/components/nvs_sec_provider /root/esp_project/hello_world/components/oled /root/esp/v5.2/esp-idf/components/openthread /root/esp/v5.2/esp-idf/components/partition_table /root/esp/v5.2/esp-idf/components/protobuf-c /root/esp/v5.2/esp-idf/components/protocomm /root/esp/v5.2/esp-idf/components/pthread /root/esp/v5.2/esp-idf/components/riscv /root/esp/v5.2/esp-idf/components/sdmmc /root/esp/v5.2/esp-idf/components/soc /root/esp/v5.2/esp-idf/components/spi_flash /root/esp/v5.2/esp-idf/components/spiffs /root/esp/v5.2/esp-idf/components/tcp_transport /root/esp/v5.2/esp-idf/components/ulp /root/esp/v5.2/esp-idf/components/unity /root/esp/v5.2/esp-idf/components/usb /root/esp/v5.2/esp-idf/components/vfs /root/esp/v5.2/esp-idf/components/wear_levelling /root/esp/v5.2/esp-idf/components/wifi_provisioning /root/esp/v5.2/esp-idf/components/wpa_supplicant
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /root/esp_project/hello_world/build
+[1/9] Performing build step for 'bootloader'
+[1/1] cd /root/esp_project/hello_world/build/bootloader/esp-idf/esptool_py && /root/.espressif/python_env/idf5.2_py3.10_env/bin/python /root/esp/v5.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /root/esp_project/hello_world/build/bootloader/bootloader.bin
+Bootloader binary size 0x5170 bytes. 0x2e90 bytes (36%) free.
+[2/7] Building CXX object esp-idf/main/CMakeFiles/__idf_main.dir/main.cpp.obj
+[3/7] Linking C static library esp-idf/main/libmain.a
+[4/7] Generating ld/sections.ld
+[5/7] Linking CXX executable hello_world.elf
+[6/7] Generating binary image from built executable
+esptool.py v4.7.0
+Creating esp32c3 image...
+Merged 2 ELF sections
+Successfully created esp32c3 image.
+Generated /root/esp_project/hello_world/build/hello_world.bin
+[7/7] cd /root/esp_project/hello_world/build/esp-idf/esptool_py && /root/.espressif/python_env/idf5.2_py3.10_env/bin/python /root/esp/v5.2/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /root/esp_project/hello_world/build/partition_table/partition-table.bin /root/esp_project/hello_world/build/hello_world.bin
+hello_world.bin binary size 0x2c820 bytes. Smallest app partition is 0x100000 bytes. 0xd37e0 bytes (83%) free.
