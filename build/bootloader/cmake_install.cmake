@@ -1,4 +1,4 @@
-# Install script for directory: /root/esp/v5.2/esp-idf/components/bootloader/subproject
+# Install script for directory: /root/esp/esp-idf/components/bootloader/subproject
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,7 +39,7 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/esp_project/hello_world/build/bootloader/esp-idf/cmake_install.cmake")
+  include("/root/esp_project/flim_project/build/bootloader/esp-idf/cmake_install.cmake")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -50,5 +50,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/root/esp_project/hello_world/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/root/esp_project/flim_project/build/bootloader/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

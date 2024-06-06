@@ -10,14 +10,17 @@
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
 #include "oled.h"
+#include "ec11.h"
 
 extern "C" void app_main(void)
 {
     char num[] = "1234567890";
-    extern Oled oled;
-    printf("Hello world!\n");
+    extern class Oled oled;
+    extern class Skey ec11;
+    printf("Hello WENXI!\n");
     oled.begin();
     oled.init();
+    ec11.begin(SW, SA, SB, NULL);
     while (1)
     {
         for (size_t i = 0; i < sizeof(num)-1; i++)

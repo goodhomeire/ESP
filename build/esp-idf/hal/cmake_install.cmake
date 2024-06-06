@@ -1,4 +1,4 @@
-# Install script for directory: /root/esp/v5.2/esp-idf/components/hal
+# Install script for directory: /root/esp/esp-idf/components/hal
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

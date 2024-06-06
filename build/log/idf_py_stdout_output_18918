@@ -1,0 +1,20 @@
+[1/9] Performing build step for 'bootloader'
+[1/1] cd /root/esp_project/flim_project/build/bootloader/esp-idf/esptool_py && /root/.espressif/python_env/idf5.2_py3.10_env/bin/python /root/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x0 /root/esp_project/flim_project/build/bootloader/bootloader.bin
+Bootloader binary size 0x5170 bytes. 0x2e90 bytes (36%) free.
+[2/7] Building CXX object esp-idf/EC11/CMakeFiles/__idf_EC11.dir/ec11.cpp.obj
+/root/esp_project/flim_project/components/EC11/ec11.cpp: In function 'void timer_init()':
+/root/esp_project/flim_project/components/EC11/ec11.cpp:209:5: warning: missing initializer for member 'esp_timer_create_args_t::dispatch_method' [-Wmissing-field-initializers]
+  209 |     };
+      |     ^
+/root/esp_project/flim_project/components/EC11/ec11.cpp:209:5: warning: missing initializer for member 'esp_timer_create_args_t::skip_unhandled_events' [-Wmissing-field-initializers]
+[3/7] Linking C static library esp-idf/EC11/libEC11.a
+[4/7] Generating ld/sections.ld
+[5/7] Linking CXX executable hello_world.elf
+[6/7] Generating binary image from built executable
+esptool.py v4.7.0
+Creating esp32c3 image...
+Merged 2 ELF sections
+Successfully created esp32c3 image.
+Generated /root/esp_project/flim_project/build/hello_world.bin
+[7/7] cd /root/esp_project/flim_project/build/esp-idf/esptool_py && /root/.espressif/python_env/idf5.2_py3.10_env/bin/python /root/esp/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 partition --type app /root/esp_project/flim_project/build/partition_table/partition-table.bin /root/esp_project/flim_project/build/hello_world.bin
+hello_world.bin binary size 0x337f0 bytes. Smallest app partition is 0x100000 bytes. 0xcc810 bytes (80%) free.
