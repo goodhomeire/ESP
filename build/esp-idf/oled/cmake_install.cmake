@@ -1,4 +1,4 @@
-# Install script for directory: /root/esp_project/flim_project/components/oled
+# Install script for directory: /root/esp_project/hello_world/components/oled
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

@@ -1,4 +1,4 @@
-# Install script for directory: /root/esp/esp-idf/components/esp_hw_support/port/esp32c3
+# Install script for directory: /root/esp/v5.2/esp-idf/components/esp_hw_support/port/esp32c3
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

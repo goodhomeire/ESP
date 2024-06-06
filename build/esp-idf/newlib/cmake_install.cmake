@@ -1,4 +1,4 @@
-# Install script for directory: /root/esp/esp-idf/components/newlib
+# Install script for directory: /root/esp/v5.2/esp-idf/components/newlib
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -39,6 +39,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("/root/esp_project/flim_project/build/esp-idf/newlib/port/cmake_install.cmake")
+  include("/root/esp_project/hello_world/build/esp-idf/newlib/port/cmake_install.cmake")
 endif()
 

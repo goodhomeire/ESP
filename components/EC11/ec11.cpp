@@ -11,7 +11,7 @@ static int8_t io_sb = -1;
 
 static uint16_t key_time = 10000;
 static uint16_t double_time = 10000;
-static uint8_t key_scan_buf = 0;
+uint8_t key_scan_buf = 0;
 static uint8_t last_buf = 0x03;
 
 static uint8_t speed_up_feel_num = 0;
@@ -108,15 +108,23 @@ void key_timer(void *arg)
     {
         speed_up_count = 0;
     }
+    if (ec11.sw_buf!=sw_clr)
+    {
+        printf("sw_buf:%d\n",ec11.sw_buf);
+    }
+    
 }
 
-IRAM_ATTR void io_sw_int(void *arg)
-{
+ void io_sw_int(void *arg)
+{   
+    // static bool state = 1;
+    // state = !state;
+    // gpio_set_level((gpio_num_t)2, state);
     ec11.state_buf = gpio_get_level((gpio_num_t)io_sw);
     ec11.state_count = 0;
 }
 
-IRAM_ATTR void io_sa_sb_int(void *arg)
+ void io_sa_sb_int(void *arg)
 {
     uint8_t tmp = gpio_get_level((gpio_num_t)io_sb) << 1;
     tmp |= gpio_get_level((gpio_num_t)io_sa);
@@ -171,7 +179,7 @@ void Skey::int_work()
     if (work_flg)
     {
         gpio_config_t io_conf;
-        io_conf.intr_type = GPIO_INTR_ANYEDGE;
+        io_conf.intr_type = GPIO_INTR_NEGEDGE;
         io_conf.mode = GPIO_MODE_INPUT;
         io_conf.pin_bit_mask = (1ULL << io_sw);
         io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
@@ -226,13 +234,17 @@ void Skey::begin(uint8_t sw, uint8_t sa, uint8_t sb ,void (*func)(ec11_task_resu
     io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
     io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
     io_conf.intr_type = GPIO_INTR_DISABLE;
-    gpio_config(&io_conf);
+    // gpio_config(&io_conf);
 
-    io_conf.pin_bit_mask = (1ULL << sa);
-    gpio_config(&io_conf);
+    // io_conf.pin_bit_mask = (1ULL << sa);
+    // gpio_config(&io_conf);
 
-    io_conf.pin_bit_mask = (1ULL << sb);
-    gpio_config(&io_conf);
+    // io_conf.pin_bit_mask = (1ULL << sb);
+    // gpio_config(&io_conf);
+
+    // io_conf.mode = GPIO_MODE_OUTPUT;
+    // io_conf.pin_bit_mask = (1ULL << 2);
+    // gpio_config(&io_conf);
 
     attch_p = func;
     work_flg = 1;
