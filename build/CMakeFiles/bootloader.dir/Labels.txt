@@ -1,13 +1,13 @@
 # Target labels
  bootloader
 # Source files and their labels
-/root/esp_project/flim_project/build/CMakeFiles/bootloader
-/root/esp_project/flim_project/build/CMakeFiles/bootloader.rule
-/root/esp_project/flim_project/build/CMakeFiles/bootloader-complete.rule
-/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
-/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
-/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
-/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
-/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
-/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
-/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule
+/root/esp_project/hello_world/build/CMakeFiles/bootloader
+/root/esp_project/hello_world/build/CMakeFiles/bootloader.rule
+/root/esp_project/hello_world/build/CMakeFiles/bootloader-complete.rule
+/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule
+/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule
+/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule
+/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule
+/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule
+/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule
+/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule

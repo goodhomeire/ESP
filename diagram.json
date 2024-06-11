@@ -3,39 +3,31 @@
   "author": "yufan zu",
   "editor": "wokwi",
   "parts": [
-    {
-      "type": "board-esp32-c3-devkitm-1",
-      "id": "esp",
-      "top": -0.3,
-      "left": -3.78,
-      "attrs": { "builder": "esp-idf" }
-    },
+    { "type": "board-esp32-c3-devkitm-1", "id": "esp", "top": 0, "left": 0, "attrs": {} },
     {
       "type": "board-ssd1306",
       "id": "oled1",
-      "top": 185.54,
-      "left": -76.57,
+      "top": 214.34,
+      "left": -86.17,
       "attrs": { "i2cAddress": "0x3c" }
     },
-    { "type": "wokwi-ky-040", "id": "encoder1", "top": 193.7, "left": 37.6, "attrs": {} }
+    { "type": "wokwi-led", "id": "led1", "top": 6, "left": -101.8, "attrs": { "color": "red" } },
+    { "type": "wokwi-ky-040", "id": "encoder1", "top": 222.5, "left": 37.6, "attrs": {} }
   ],
   "connections": [
     [ "esp:TX", "$serialMonitor:RX", "", [] ],
     [ "esp:RX", "$serialMonitor:TX", "", [] ],
-    [ "esp:GND.1", "oled1:GND", "black", [ "v0", "h-28.8" ] ],
+    [ "oled1:GND", "esp:GND.1", "black", [ "v0" ] ],
     [ "oled1:VCC", "esp:3V3.1", "red", [ "v0" ] ],
-    [ "esp:0", "oled1:SCL", "green", [ "h0" ] ],
-    [ "esp:1", "oled1:SDA", "green", [ "h0" ] ],
-    [ "esp:4", "encoder1:CLK", "green", [ "v0", "h45.58" ] ],
-    [ "esp:5", "encoder1:DT", "green", [ "h74.38", "v105.6", "h-9.6" ] ],
-    [ "esp:6", "encoder1:SW", "green", [ "h83.98", "v28.8" ] ],
-    [ "esp:GND.6", "encoder1:GND", "black", [ "v0", "h93.58", "v86.4", "h-9.6" ] ],
-    [
-      "encoder1:VCC",
-      "esp:3V3.2",
-      "red",
-      [ "h19.2", "v0.4", "h28.8", "v-230.4", "h-220.8", "v38.4" ]
-    ]
+    [ "oled1:SCL", "esp:0", "green", [ "v0" ] ],
+    [ "oled1:SDA", "esp:1", "green", [ "v0" ] ],
+    [ "esp:2", "led1:A", "green", [ "h0" ] ],
+    [ "led1:C", "esp:GND.1", "green", [ "v0" ] ],
+    [ "esp:6", "encoder1:SW", "green", [ "h89.8", "v143.7" ] ],
+    [ "encoder1:DT", "esp:5", "green", [ "h9.6", "v-134.3" ] ],
+    [ "esp:4", "encoder1:CLK", "green", [ "v-0.3", "h41.8" ] ],
+    [ "encoder1:VCC", "esp:3V3.2", "red", [ "h38.4", "v-306.8", "h-211.2", "v86.4" ] ],
+    [ "esp:GND.6", "encoder1:GND", "black", [ "v-0.3", "h80.2", "v115.2" ] ]
   ],
   "dependencies": {}
 }

@@ -2,34 +2,34 @@
 	"sources" : 
 	[
 		{
-			"file" : "/root/esp_project/flim_project/build/CMakeFiles/bootloader"
+			"file" : "/root/esp_project/hello_world/build/CMakeFiles/bootloader"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/CMakeFiles/bootloader.rule"
+			"file" : "/root/esp_project/hello_world/build/CMakeFiles/bootloader.rule"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/CMakeFiles/bootloader-complete.rule"
+			"file" : "/root/esp_project/hello_world/build/CMakeFiles/bootloader-complete.rule"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
+			"file" : "/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-build.rule"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
+			"file" : "/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-configure.rule"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
+			"file" : "/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-download.rule"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
+			"file" : "/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-install.rule"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
+			"file" : "/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-mkdir.rule"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
+			"file" : "/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-patch.rule"
 		},
 		{
-			"file" : "/root/esp_project/flim_project/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
+			"file" : "/root/esp_project/hello_world/build/bootloader-prefix/src/bootloader-stamp/bootloader-update.rule"
 		}
 	],
 	"target" : 

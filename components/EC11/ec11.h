@@ -7,6 +7,7 @@ extern "C" {
 #include "freertos/task.h"
 #include "driver/gpio.h"
 #include "esp_timer.h"
+#include "esp_log.h"
 
 #define SW GPIO_NUM_6
 #define SA GPIO_NUM_5

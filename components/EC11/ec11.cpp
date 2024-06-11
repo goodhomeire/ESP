@@ -1,7 +1,7 @@
 #include "ec11.h"
 
 Skey ec11;
-
+static const char* TAG = "ButtonInterrupts";
 static esp_timer_handle_t key_tic;
 
 
@@ -11,7 +11,7 @@ static int8_t io_sb = -1;
 
 static uint16_t key_time = 10000;
 static uint16_t double_time = 10000;
-static uint8_t key_scan_buf = 0;
+uint8_t key_scan_buf = 0;
 static uint8_t last_buf = 0x03;
 
 static uint8_t speed_up_feel_num = 0;
@@ -49,6 +49,7 @@ void Skey::key_mode_read()
 
 void key_timer(void *arg)
 {
+    printf("key_timer:%d\n",ec11.state_count);
 
     if (ec11.state_count < 255)
     {
@@ -108,15 +109,23 @@ void key_timer(void *arg)
     {
         speed_up_count = 0;
     }
+    if (ec11.sw_buf!=sw_clr)
+    {
+        printf("sw_buf:%d\n",ec11.sw_buf);
+    }
+    
 }
 
-IRAM_ATTR void io_sw_int(void *arg)
-{
+ void io_sw_int(void *arg)
+{   
+    static bool state = 0;
+    gpio_set_level((gpio_num_t)2, state);
+    state = !state;
     ec11.state_buf = gpio_get_level((gpio_num_t)io_sw);
     ec11.state_count = 0;
 }
 
-IRAM_ATTR void io_sa_sb_int(void *arg)
+void io_sa_sb_int(void *arg)
 {
     uint8_t tmp = gpio_get_level((gpio_num_t)io_sb) << 1;
     tmp |= gpio_get_level((gpio_num_t)io_sa);
@@ -156,8 +165,11 @@ void Skey::detach()
 }
 void Skey::task()
 {
-    if (attch_p == NULL)
+    if (attch_p == NULL){
+        printf("attch_p is NULL\n");
         return;
+    }
+        
     if (_take_type_ec_sw == ec11_task_is_key)
         attch_p(_take_type_ec_sw, sw_buf);
     else
@@ -171,24 +183,34 @@ void Skey::int_work()
     if (work_flg)
     {
         gpio_config_t io_conf;
-        io_conf.intr_type = GPIO_INTR_ANYEDGE;
+        io_conf.intr_type = GPIO_INTR_NEGEDGE;
         io_conf.mode = GPIO_MODE_INPUT;
-        io_conf.pin_bit_mask = (1ULL << io_sw);
+        io_conf.pin_bit_mask = (1ULL << io_sw) | (1ULL << io_sa) | (1ULL << io_sb);
         io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
         io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
-        printf("start isr_register\n");
         gpio_config(&io_conf);
-        gpio_install_isr_service(ESP_INTR_FLAG_EDGE);
-        gpio_isr_handler_add((gpio_num_t)io_sw, io_sw_int, NULL);
 
-        io_conf.pin_bit_mask = (1ULL << io_sa);
-        gpio_config(&io_conf);
-        gpio_isr_handler_add((gpio_num_t)io_sa, io_sa_sb_int, NULL);
-
-        io_conf.pin_bit_mask = (1ULL << io_sb);
-        gpio_config(&io_conf);
-        gpio_isr_handler_add((gpio_num_t)io_sb, io_sa_sb_int, NULL);
-        
+        ESP_LOGI(TAG,"start isr_register\n");
+        esp_err_t err = gpio_install_isr_service(ESP_INTR_FLAG_EDGE);
+        if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to install ISR service: %s", esp_err_to_name(err));
+         return;
+    }else{ESP_LOGI(TAG, "Success to install ISR service");}
+        err = gpio_isr_handler_add((gpio_num_t)io_sw, io_sw_int, NULL);
+        if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to add ISR handler for SW_PIN1: %s", esp_err_to_name(err));
+         return;
+    }else{ESP_LOGI(TAG, "Success to install io_sw service");}
+        err = gpio_isr_handler_add((gpio_num_t)io_sa, io_sa_sb_int, NULL);
+        if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to add ISR handler for SA_PIN1: %s", esp_err_to_name(err));
+         return;
+    }
+        err = gpio_isr_handler_add((gpio_num_t)io_sb, io_sa_sb_int, NULL);
+        if (err != ESP_OK) {
+        ESP_LOGE(TAG, "Failed to add ISR handler for SB_PIN1: %s", esp_err_to_name(err));
+         return;
+    }
         
     }
 }
@@ -212,7 +234,7 @@ static void timer_init(void) {
     esp_timer_create(&periodic_timer_args, &key_tic);
 
     // 启动定时器，每100毫秒调用一次回调函数
-    esp_timer_start_periodic(key_tic, 1000);  // 100000微秒 = 100毫秒
+    esp_timer_start_periodic(key_tic, 10000);  // 100000微秒 = 100毫秒
 }
 
 void Skey::begin(uint8_t sw, uint8_t sa, uint8_t sb ,void (*func)(ec11_task_result_type task_type, int16_t rusult_value))
@@ -220,19 +242,27 @@ void Skey::begin(uint8_t sw, uint8_t sa, uint8_t sb ,void (*func)(ec11_task_resu
     io_sw = sw;
     io_sa = sa;
     io_sb = sb;
-    gpio_config_t io_conf;
-    io_conf.mode = GPIO_MODE_INPUT;
-    io_conf.pin_bit_mask = (1ULL << sw);
-    io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
-    io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
-    io_conf.intr_type = GPIO_INTR_DISABLE;
-    gpio_config(&io_conf);
+    // gpio_config_t io_conf;
+    // io_conf.mode = GPIO_MODE_INPUT;
+    // io_conf.pin_bit_mask = (1ULL << sw);
+    // io_conf.pull_up_en = GPIO_PULLUP_ENABLE;
+    // io_conf.pull_down_en = GPIO_PULLDOWN_DISABLE;
+    // io_conf.intr_type = GPIO_INTR_DISABLE;
+    // gpio_config(&io_conf);
 
-    io_conf.pin_bit_mask = (1ULL << sa);
-    gpio_config(&io_conf);
+    // io_conf.pin_bit_mask = (1ULL << sa);
+    // gpio_config(&io_conf);
 
-    io_conf.pin_bit_mask = (1ULL << sb);
-    gpio_config(&io_conf);
+    // io_conf.pin_bit_mask = (1ULL << sb);
+    // gpio_config(&io_conf);
+    gpio_config_t test_io;
+    test_io.intr_type = GPIO_INTR_DISABLE;
+    test_io.mode = GPIO_MODE_OUTPUT;
+    test_io.pin_bit_mask = (1ULL << 2);
+    test_io.pull_up_en = GPIO_PULLUP_DISABLE;
+    test_io.pull_down_en = GPIO_PULLDOWN_DISABLE;
+    gpio_config(&test_io);
+    gpio_set_level((gpio_num_t)2, 1);
 
     attch_p = func;
     work_flg = 1;
@@ -240,24 +270,24 @@ void Skey::begin(uint8_t sw, uint8_t sa, uint8_t sb ,void (*func)(ec11_task_resu
     double_time = 10000;
     key_scan_buf = 0;
     last_buf = 0;
-    if (io_sw != -1)
-    {
-        io_conf.pin_bit_mask = (1ULL << io_sw);
-        gpio_config(&io_conf);
-    }
+    // if (io_sw != -1)
+    // {
+    //     io_conf.pin_bit_mask = (1ULL << io_sw);
+    //     gpio_config(&io_conf);
+    // }
         
-    if (io_sa != -1)
-    {
-        io_conf.pin_bit_mask = (1ULL << io_sa);
-        gpio_config(&io_conf);
-    }
+    // if (io_sa != -1)
+    // {
+    //     io_conf.pin_bit_mask = (1ULL << io_sa);
+    //     gpio_config(&io_conf);
+    // }
         
-    if (io_sb != -1)
-    {
-        io_conf.pin_bit_mask = (1ULL << io_sb);
-        gpio_config(&io_conf);
-    }
-        
+    // if (io_sb != -1)
+    // {
+    //     io_conf.pin_bit_mask = (1ULL << io_sb);
+    //     gpio_config(&io_conf);
+    // }
+
     int_work();
     timer_init();
 }

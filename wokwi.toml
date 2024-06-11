@@ -2,3 +2,4 @@
 version = 1
 firmware = 'build/hello_world.bin'
 elf = 'build/hello_world.elf'
+gdbServerPort=3333
